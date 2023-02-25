@@ -6,12 +6,14 @@ const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require("path");
+const cors = require('cors')
 
 dotenv.config();
 connectDB();
 const app = express();
 const PORT = process.env.PORT;
 
+app.use(cors());
 app.use(express.json()); // to accept json data
 
 // app.get("/", (req, res) => {
